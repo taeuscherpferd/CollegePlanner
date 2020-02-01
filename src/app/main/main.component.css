@@ -1,0 +1,17 @@
+.flex-container-vert {
+  display: flex;
+  flex-direction: row;
+  background-color: #f8f8f8;
+  height: 100%;
+}
+
+app-semester-view {
+  flex: 80%
+}
+
+app-course-list {
+  flex: 20%;
+  border-color: gray;
+  border-width: 1px;
+  border-style: solid;
+}
