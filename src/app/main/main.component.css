@@ -6,11 +6,11 @@
 }
 
 app-semester-view {
-  flex: 80%
+  flex: 70%
 }
 
 app-course-list {
-  flex: 20%;
+  flex: 30%;
   border-color: gray;
   border-width: 1px;
   border-style: solid;

@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { MatListModule, MatButtonModule, MatGridListModule, MatExpansionModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -8,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AuthService } from './services/auth.service';
 import { AUTH_SERVICE } from './interfaces/tokens/auth-service-interface.token';
 import { LoginComponent } from './auth/login/login.component';
+import { CourseComponent } from './course/course.component';
 import { CourseListComponent } from './course-list/course-list.component';
 import { SettingsComponent } from './settings/settings.component';
 import { SemesterViewComponent } from './semester-view/semester-view.component';
@@ -26,6 +29,7 @@ import { SettingsService } from './services/settings.service';
     AppComponent,
     MainComponent,
     LoginComponent,
+    CourseComponent,
     CourseListComponent,
     SettingsComponent,
     SemesterViewComponent,
@@ -34,7 +38,12 @@ import { SettingsService } from './services/settings.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule,
+    MatListModule,
+    MatButtonModule,
+    MatGridListModule,
+    MatExpansionModule
   ],
   providers: [{provide: AUTH_SERVICE, useClass: AuthService},
               {provide: DATA_SERVICE, useClass: DataService},

@@ -1,0 +1,31 @@
+
+div.course {
+    padding: 10px 10px;
+    line-height: 5px;
+    margin: 8px;
+    border: solid 1px #ccc;
+    border-radius: 4px;
+    cursor: move;
+    font-size: 14px;
+}
+
+div.GE {
+    background-color: #581845;
+    color: white;
+}
+div.GE-major-required {
+    background-color: #900c3f;
+    color: white;
+}
+div.major-required {
+    background-color: #c70039;
+    color: white;
+}
+div.major-elective {
+    background-color: #ff5733;
+    color: white;
+}
+div.elective {
+    background-color: #ffc300;
+    color: white;
+}
