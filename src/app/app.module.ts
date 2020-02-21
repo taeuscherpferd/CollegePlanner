@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AuthService } from './services/auth.service';
 import { AUTH_SERVICE } from './interfaces/tokens/auth-service-interface.token';
 import { LoginComponent } from './auth/login/login.component';
+import { CourseComponent } from './course/course.component';
 import { CourseListComponent } from './course-list/course-list.component';
 import { SettingsComponent } from './settings/settings.component';
 import { SemesterViewComponent } from './semester-view/semester-view.component';
@@ -28,6 +29,7 @@ import { SettingsService } from './services/settings.service';
     AppComponent,
     MainComponent,
     LoginComponent,
+    CourseComponent,
     CourseListComponent,
     SettingsComponent,
     SemesterViewComponent,
