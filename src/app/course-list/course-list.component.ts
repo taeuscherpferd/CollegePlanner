@@ -1,8 +1,11 @@
-import { Component, OnInit, NgModule } from '@angular/core';
+import { Component, OnInit, NgModule, Inject } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { analyzeAndValidateNgModules } from '@angular/compiler';
+import { DataService } from '../services/data.service';
+import { DATA_SERVICE } from '../interfaces/tokens/data-service-interface.token';
+
 
 const headerDict = {
   'Access-Control-Allow-Origins': '*',
@@ -33,7 +36,7 @@ export class CourseListComponent implements OnInit {
   tempObject: any;
   currentlyOpenedItemIndex = -1;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, @Inject(DATA_SERVICE) private dataService: DataService) { }
 
   ngOnInit() {
     this.arrangeCoursesByType(1);
@@ -47,19 +50,21 @@ export class CourseListComponent implements OnInit {
   //   console.log(this.courses2);
   // }
 
-  getCourses(major) {
+  async getCourses(major) {
     if(major == 1) {
-      this.tempObject = JSON.parse(data);
-      this.courses = this.tempObject.program.courses;
+      // this.tempObject = JSON.parse(data);
+      // this.courses = this.tempObject.program.courses;
+      this.courses = await this.dataService.fetchDataCS()
     }
     else {
-      this.tempObject = JSON.parse(data2);
-      this.courses = this.tempObject.program.courses;
+      // this.tempObject = JSON.parse(data2);
+      // this.courses = this.tempObject.program.courses;
+      this.courses = await this.dataService.fetchDataEcon()
     }
   }
 
-  arrangeCoursesByType(major) {
-    this.getCourses(major);
+  async arrangeCoursesByType(major) {
+    await this.getCourses(major);
     this.coursesByType = new Array;
     this.types = JSON.parse(types);
     for(var j = 0; j < this.types.length; j++) {
