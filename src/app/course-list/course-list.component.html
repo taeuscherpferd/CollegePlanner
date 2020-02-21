@@ -24,7 +24,7 @@
         </mat-expansion-panel-header>
         <mat-list style="margin-left:30px;">
             <div *ngFor="let c of coursesByType[i]">
-                <mat-list-item (click)="onClickCourse(c.code)">{{ c.code }}</mat-list-item>
+                <app-course [course]="c"></app-course>
             </div>
         </mat-list>
     </mat-expansion-panel>
