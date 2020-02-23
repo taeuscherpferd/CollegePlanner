@@ -1,0 +1,17 @@
+.semester-list-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 35.5px;
+}
+
+.components {
+  padding: 50px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  /* overflow-y: scroll; */
+}

@@ -1,1 +1,7 @@
-<p>semester-view works!</p>
+<div class="row">
+  <div class="semester-list-container" *ngFor="let semester of semesterLists">
+    <div class="semester">
+      <app-semester-list class="components"></app-semester-list>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { DATA_SERVICE } from '../interfaces/tokens/data-service-interface.token';
+import { DataService } from '../services/data.service';
+import { SemesterListComponent } from '../semester-list/semester-list.component';
 
 @Component({
   selector: 'app-semester-view',
@@ -6,10 +9,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./semester-view.component.css']
 })
 export class SemesterViewComponent implements OnInit {
+  semesterLists: Array<SemesterListComponent> = []
 
-  constructor() { }
+  constructor(@Inject(DATA_SERVICE) private dataService: DataService) { }
 
-  ngOnInit() {
+  async ngOnInit() {
+    this.semesterLists = await this.dataService.getSemesterData()
   }
-
 }
