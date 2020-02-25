@@ -4,5 +4,6 @@ import { SemesterListComponent } from 'src/app/semester-list/semester-list.compo
 export interface IDataService {
   fetchCourseData(major: string): Promise<Array<Course>>
   getSemesterData(): Promise<Array<SemesterListComponent>>
+  addSemester(semester: SemesterListComponent)
 
 }

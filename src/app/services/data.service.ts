@@ -11,6 +11,11 @@ export class DataService implements IDataService {
   // private courses: [Course];
   constructor() { }
 
+  addSemester(semester: SemesterListComponent) {
+    //TODO: This should probably be marked as async and talk with the backend
+    semesterData.push(semester)
+  }
+
   async getSemesterData() : Promise<Array<SemesterListComponent>> {
     return semesterData
   }

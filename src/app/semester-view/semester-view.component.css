@@ -13,5 +13,24 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  z-index: 0;
   /* overflow-y: scroll; */
+}
+
+/*FIXME:*/
+.floating-button {
+  bottom: 10px;
+  right: 500px;
+  position: fixed;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.add-post-button {
+  background-size: 75px 75px;
+  height: 76px;
+  width: 76px;
+  border-radius: 50%;
 }

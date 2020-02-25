@@ -16,4 +16,8 @@ export class SemesterViewComponent implements OnInit {
   async ngOnInit() {
     this.semesterLists = await this.dataService.getSemesterData()
   }
+  onAddSemesterButtonClick() {
+    let newComp = new SemesterListComponent()
+    this.dataService.addSemester(newComp)
+  }
 }

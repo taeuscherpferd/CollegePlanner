@@ -1,7 +1,12 @@
+<div>
 <div class="row">
   <div class="semester-list-container" *ngFor="let semester of semesterLists">
     <div class="semester">
       <app-semester-list class="components"></app-semester-list>
     </div>
   </div>
+</div>
+<div class="floating-button">
+  <button class="add-post-button" (click)="onAddSemesterButtonClick()"></button>
+</div>
 </div>
