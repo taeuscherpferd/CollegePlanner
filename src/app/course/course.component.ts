@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ICourse } from '../interfaces/course.interface';
-
 import { CdkDrag } from '@angular/cdk/drag-drop';
 import { Course } from '../models/course';
 
@@ -18,7 +17,6 @@ export class CourseComponent implements OnInit, ICourse {
 
   ngOnInit() {
       this.whenOffered = '';
-      console.log(this.course)
       if (this.course.semesterOffered.fall) { this.whenOffered += 'F'; }
       if (this.course.semesterOffered.winter) { this.whenOffered += 'W'; }
       if (this.course.semesterOffered.spring) { this.whenOffered += 'Sp'; }
@@ -37,6 +35,4 @@ export class CourseComponent implements OnInit, ICourse {
   getPrereqs() {
       return this.course.prereqs;
   }
-
-
 }
