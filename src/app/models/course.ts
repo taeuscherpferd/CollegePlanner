@@ -3,6 +3,6 @@ export class Course {
   courseCode: string
   creditCount: number
   courseType: string
-  semesterOffered: [boolean]
+  semesterOffered: {fall: Boolean, summer: Boolean, winter: Boolean, spring: Boolean}
   prereqs: [string]
 }
