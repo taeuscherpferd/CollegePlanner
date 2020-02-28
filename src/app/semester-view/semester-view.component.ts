@@ -2,6 +2,8 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { DATA_SERVICE } from '../interfaces/tokens/data-service-interface.token';
 import { DataService } from '../services/data.service';
 import { SemesterListComponent } from '../semester-list/semester-list.component';
+import { Semester } from '../models/semester';
+import { Course } from '../models/course';
 
 @Component({
   selector: 'app-semester-view',
@@ -9,7 +11,7 @@ import { SemesterListComponent } from '../semester-list/semester-list.component'
   styleUrls: ['./semester-view.component.css']
 })
 export class SemesterViewComponent implements OnInit {
-  semesterLists: Array<SemesterListComponent> = []
+  semesterLists: Array<Semester> = []
 
   constructor(@Inject(DATA_SERVICE) private dataService: DataService) { }
 
@@ -17,7 +19,7 @@ export class SemesterViewComponent implements OnInit {
     this.semesterLists = await this.dataService.getSemesterData()
   }
   onAddSemesterButtonClick() {
-    let newComp = new SemesterListComponent()
-    this.dataService.addSemester(newComp)
+    let newSem = new Semester([new Course()])
+    this.dataService.addSemester(newSem)
   }
 }

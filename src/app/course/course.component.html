@@ -1,4 +1,4 @@
-<div class="course {{ course.courseType }}" cdkDrag>
+<div class="course {{ course.courseType }}">
     <p class="code-title">{{ course.courseCode }} | {{ (course.courseName.length>15) ? (course.courseName | slice:0:15)+'...' : (course.courseName) }}</p>
     <p>{{ course.creditCount }} hrs | {{ whenOffered }}</p>
 </div>

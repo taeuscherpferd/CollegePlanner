@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainComponent } from './main/main.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthService } from './services/auth.service';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 import { AUTH_SERVICE } from './interfaces/tokens/auth-service-interface.token';
 import { LoginComponent } from './auth/login/login.component';
 import { CourseComponent } from './course/course.component';
@@ -43,6 +44,7 @@ import { SettingsService } from './services/settings.service';
     MatListModule,
     MatButtonModule,
     MatGridListModule,
+    DragDropModule,
     MatExpansionModule
   ],
   providers: [{provide: AUTH_SERVICE, useClass: AuthService},

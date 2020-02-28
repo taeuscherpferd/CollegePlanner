@@ -12,6 +12,8 @@ app-semester-view {
 
 app-course-list {
   flex: 30%;
+  position: relative;
+  z-index: 1;
   border-color: gray;
   border-width: 1px;
   border-style: solid;

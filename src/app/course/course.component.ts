@@ -16,6 +16,7 @@ export class CourseComponent implements OnInit, ICourse {
   constructor() { }
 
   ngOnInit() {
+      // console.log(this.course)
       this.whenOffered = '';
       if (this.course.semesterOffered.fall) { this.whenOffered += 'F'; }
       if (this.course.semesterOffered.winter) { this.whenOffered += 'W'; }

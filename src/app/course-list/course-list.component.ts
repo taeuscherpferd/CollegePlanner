@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { DATA_SERVICE } from '../interfaces/tokens/data-service-interface.token';
 import { IDataService } from '../interfaces/services/data-service.interface';
 import { Course } from '../models/course';
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-course-list',
@@ -16,6 +17,7 @@ export class CourseListComponent implements OnInit {
   coursesByType: Array<Array<Course>> = [];
   tempObject: any;
   currentlyOpenedItemIndex = -1;
+  connectedLists = ['semester1', 'semester2', 'semester3','semester4']
 
   constructor( @Inject(DATA_SERVICE) private dataService: IDataService) { }
 
@@ -84,7 +86,11 @@ export class CourseListComponent implements OnInit {
     }
   }
 
+  drop(event: CdkDragDrop<string[]>) {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem(event.previousContainer.data, event.container.data, event.previousIndex, event.currentIndex);
+    }
+  }
 }
-
-
-
