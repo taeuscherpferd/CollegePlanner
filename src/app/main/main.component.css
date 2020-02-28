@@ -6,7 +6,8 @@
 }
 
 app-semester-view {
-  flex: 70%
+  flex: 70%;
+  overflow-y: scroll;
 }
 
 app-course-list {
