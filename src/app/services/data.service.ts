@@ -26,22 +26,7 @@ export class DataService implements IDataService {
   }
 
   async fetchCourseData(major: String): Promise<Array<Course>> {
-    let courseArray: Array<Course> = []
     let resp = await this.networkService.get(this.BASE_ENDPOINT+'/majorProgram/'+major);
-
-    for (let course of resp.program.courses) {
-      let newCourseObj = new Course()
-      newCourseObj.courseCode = course.code
-      newCourseObj.courseName = course.name
-      newCourseObj.courseType = course.type
-      newCourseObj.creditCount = course.credits
-      newCourseObj.prereqs = course.prereqs
-      newCourseObj.semesterOffered = course.offered
-      courseArray.push(newCourseObj)
-    }
-
-    // this.courses = courseArray
-
-    return courseArray;
+    return resp.program.courses;
   }
 }

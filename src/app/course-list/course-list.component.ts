@@ -53,7 +53,7 @@ export class CourseListComponent implements OnInit {
       var tempArray = new Array<Course>();
       var i = 0;
       while (i < this.courses.length) {
-        if(this.courses[i].courseType == this.types[j]) {
+        if(this.courses[i].type == this.types[j]) {
           tempArray.push(this.courses[i]);
         }
         i++;
