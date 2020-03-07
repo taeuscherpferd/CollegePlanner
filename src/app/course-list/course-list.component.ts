@@ -35,18 +35,18 @@ export class CourseListComponent implements OnInit {
     if(major == 1) {
       // this.tempObject = JSON.parse(data);
       // this.courses = this.tempObject.program.courses;
-      this.courses = await this.dataService.fetchCourseData("cs")
+      this.courses = await this.dataService.fetchCourseData("1")
     }
     else {
       // this.tempObject = JSON.parse(data2);
       // this.courses = this.tempObject.program.courses;
-      this.courses = await this.dataService.fetchCourseData("econ")
+      this.courses = await this.dataService.fetchCourseData("2")
     }
   }
 
   async arrangeCoursesByType(major) {
     await this.getCourses(major);
-    
+
     this.coursesByType = new Array;
     // this.types = JSON.parse(this.types);
     for(var j = 0; j < this.types.length; j++) {
@@ -85,6 +85,3 @@ export class CourseListComponent implements OnInit {
   }
 
 }
-
-
-
