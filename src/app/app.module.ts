@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { MatListModule, MatButtonModule, MatGridListModule, MatExpansionModule } from '@angular/material';
+import { MatListModule, MatButtonModule, MatGridListModule, MatExpansionModule, MatDialogModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -23,6 +23,8 @@ import { DataService } from './services/data.service';
 import { NetworkService } from './services/network.service';
 import { DragNDropService } from './services/drag-n-drop.service';
 import { SettingsService } from './services/settings.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,7 @@ import { SettingsService } from './services/settings.service';
     CourseListComponent,
     SettingsComponent,
     SemesterViewComponent,
-    SemesterListComponent
+    SemesterListComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,13 +45,21 @@ import { SettingsService } from './services/settings.service';
     MatListModule,
     MatButtonModule,
     MatGridListModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
+  entryComponents: [CourseListComponent, SettingsComponent],
   providers: [{provide: AUTH_SERVICE, useClass: AuthService},
               {provide: DATA_SERVICE, useClass: DataService},
               {provide: NETWORK_SERVICE, useClass: NetworkService},
               {provide: DRAG_N_DROP_SERVICE, useClass: DragNDropService},
-              {provide: SETTINGS_SERVICE, useClass: SettingsService}],
+              {provide: SETTINGS_SERVICE, useClass: SettingsService},
+              {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill'} },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
