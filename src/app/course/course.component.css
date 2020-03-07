@@ -10,22 +10,22 @@ div.course {
 }
 
 div.GE {
-    background-color: #581845;
+    background-color: #5dd3ff;
     color: white;
 }
 div.GE-major-required {
-    background-color: #900c3f;
+    background-color: #ff8040;
     color: white;
 }
 div.major-required {
-    background-color: #c70039;
+    background-color: #ff7674;
     color: white;
 }
 div.major-elective {
-    background-color: #ff5733;
+    background-color: #a55bfd;
     color: white;
 }
 div.elective {
-    background-color: #ffc300;
+    background-color: #ffdf6a;
     color: white;
 }
