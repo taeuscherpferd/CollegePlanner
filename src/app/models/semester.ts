@@ -1,16 +1,22 @@
 import { Course } from './course'
 
 export class Semester {
-  title: String = ""
-  creditCount: Number = 0
+  title: string = ""
+  creditCount: number = 0
   courses: Array<Course> = []
-  id: Number 
+  id: number
 
-  constructor(i_courses: [Course], i_Id?: Number) {
-    this.courses = i_courses
+  constructor(i_courses?: [Course], i_Id?: number) {
+    if (i_courses != null) {
+      this.courses = i_courses
+    }
 
     if (i_Id) {
       this.id = i_Id
+    }
+
+    for (let course of this.courses) {
+      this.creditCount += course.creditCount
     }
   }
 }

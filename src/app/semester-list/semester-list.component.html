@@ -1,6 +1,6 @@
 <div class="square">
   <!-- <h2>{{semester.title}}</h2> -->
-  <h2>Dummy Title</h2>
+  <h2 class="centered">Dummy Title</h2>
   <div
     cdkDropList
     id="{{'semester' + semester.id}}"
@@ -8,10 +8,12 @@
     [cdkDropListData]="semester.courses"
     [cdkDropListConnectedTo]="connectedLists"
     class="example-list"
-    (cdkDropListDropped)="drop($event)">
-    <div class="example-box" *ngFor="let item of semester.courses" cdkDrag>
+    (cdkDropListDropped)="drop($event)"
+    (cdkDropListExited)="exit($event)"
+    (cdkDropListEntered)="entered($event)">
+    <div class="example-box" *ngFor="let item of semester.courses" cdkDrag [cdkDragData] = "item">
       <app-course [course]="item"></app-course>
     </div>
   </div>
-  <h3>{{semester.creditCount}}</h3>
+  <h3 class="centered">Credits: {{semester.creditCount}}</h3>
 </div>

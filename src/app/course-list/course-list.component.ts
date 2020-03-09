@@ -17,7 +17,7 @@ export class CourseListComponent implements OnInit {
   coursesByType: Array<Array<Course>> = [];
   tempObject: any;
   currentlyOpenedItemIndex = -1;
-  connectedLists = ['semester1', 'semester2', 'semester3','semester4']
+  connectedLists = ['semester1', 'semester2', 'semester3','semester4','semester5']
 
   constructor( @Inject(DATA_SERVICE) private dataService: IDataService) { }
 
@@ -86,7 +86,7 @@ export class CourseListComponent implements OnInit {
     }
   }
 
-  drop(event: CdkDragDrop<string[]>) {
+  drop(event: CdkDragDrop<Course[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {

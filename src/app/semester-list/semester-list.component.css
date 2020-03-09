@@ -1,7 +1,14 @@
 .square {
   height: 500px;
   width: 320px;
-  background-color: blue;
+  border-radius: 16px;
+  border: 1px solid ;
+  /* box-shadow: 1px 1px grey; */
+  /* background-color: blue; */
+}
+
+.centered {
+  text-align: center;
 }
 
 .example-list {

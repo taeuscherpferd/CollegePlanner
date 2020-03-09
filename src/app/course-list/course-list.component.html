@@ -20,7 +20,7 @@
             class="example-list"
             (cdkDropListDropped)="drop($event)">
 
-            <div *ngFor="let c of coursesByType[i]" cdkDrag>
+            <div *ngFor="let c of coursesByType[i]" cdkDrag [cdkDragData] = "c">
                 <app-course [course]="c"></app-course>
             </div>
           </div>

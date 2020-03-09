@@ -19,7 +19,9 @@ export class SemesterViewComponent implements OnInit {
     this.semesterLists = await this.dataService.getSemesterData()
   }
   onAddSemesterButtonClick() {
-    let newSem = new Semester([new Course()])
+    let newSem = new Semester()
+    newSem.id = 5
+    newSem.title = "New Semester"
     this.dataService.addSemester(newSem)
   }
 }
