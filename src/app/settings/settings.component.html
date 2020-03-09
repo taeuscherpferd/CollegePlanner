@@ -1,1 +1,12 @@
-<p>settings works!</p>
+<h1 mat-dialog-title>Settings</h1>
+<div mat-dialog-content>
+  <p>Pick a Major</p>
+  <mat-grid-list cols="2" rowHeight="2:1">
+    <mat-grid-tile><button (click)="onClickEcon()" raised-button>Econ</button></mat-grid-tile>
+    <mat-grid-tile><button (click)="onClickCS()" raised-button>CS</button></mat-grid-tile>
+</mat-grid-list>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="data.type" cdkFocusInitial>Ok</button>
+</div>

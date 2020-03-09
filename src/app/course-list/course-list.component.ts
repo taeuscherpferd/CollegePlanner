@@ -2,6 +2,8 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { DATA_SERVICE } from '../interfaces/tokens/data-service-interface.token';
 import { IDataService } from '../interfaces/services/data-service.interface';
 import { Course } from '../models/course';
+import { MatDialog } from '@angular/material/dialog';
+import { SettingsComponent } from '../settings/settings.component';
 
 @Component({
   selector: 'app-course-list',
@@ -14,22 +16,15 @@ export class CourseListComponent implements OnInit {
   courses: Array<Course>;
   courses2: Array<Course>;
   coursesByType: Array<Array<Course>> = [];
-  tempObject: any;
   currentlyOpenedItemIndex = -1;
+  type: Number;
 
-  constructor( @Inject(DATA_SERVICE) private dataService: IDataService) { }
+  constructor( public dialog: MatDialog, @Inject(DATA_SERVICE) private dataService: IDataService) { }
 
   async ngOnInit() {
     await this.arrangeCoursesByType(1);
+    this.type = 1;
   }
-
-  // extractData() {
-  //   var body = this.http.get(endpoint, requestOptions);
-  //   console.log(body);
-  //   this.tempObject = body;
-  //   this.courses2 = this.tempObject.program.courses;
-  //   console.log(this.courses2);
-  // }
 
   async getCourses(major) {
     if(major == 1) {
@@ -48,7 +43,6 @@ export class CourseListComponent implements OnInit {
     await this.getCourses(major);
 
     this.coursesByType = new Array;
-    // this.types = JSON.parse(this.types);
     for(var j = 0; j < this.types.length; j++) {
       var tempArray = new Array<Course>();
       var i = 0;
@@ -62,18 +56,6 @@ export class CourseListComponent implements OnInit {
     }
   }
 
-  onClickCS() {
-    this.arrangeCoursesByType(1);
-  }
-
-  onClickEcon() {
-    this.arrangeCoursesByType(2);
-  }
-
-  onClickCourse(course) {
-    console.log(course);
-  }
-
   setOpened(itemIndex) {
     this.currentlyOpenedItemIndex = itemIndex;
   }
@@ -84,4 +66,19 @@ export class CourseListComponent implements OnInit {
     }
   }
 
+  onClickCourse(course) {
+    console.log(course);
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(SettingsComponent, {
+      width: '250px',
+      data: {type: this.type}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.arrangeCoursesByType(result);
+      console.log('The dialog was closed = ' + result);
+    });
+  }
 }

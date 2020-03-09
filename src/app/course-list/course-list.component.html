@@ -1,19 +1,14 @@
-<mat-grid-list cols="3" rowHeight="2:1">
+<h2 style="text-align:center;">Pick your classes!</h2>
+<div id="button-div">
+    <button mat-raised-button (click)="openDialog()">Settings</button>
+</div>
+
+
+<!-- <mat-grid-list cols="3" rowHeight="2:1">
     <mat-grid-tile>Pick Major:</mat-grid-tile>
     <mat-grid-tile><button (click)="onClickEcon()" raised-button>Econ</button></mat-grid-tile>
     <mat-grid-tile><button (click)="onClickCS()" raised-button>CS</button></mat-grid-tile>
-  </mat-grid-list>
-
-<!-- <mat-list>
-	<ng-container *ngFor="let t of types; let i = index">
-		<mat-list-item>{{t}}</mat-list-item>
-		<mat-list style="margin-left:30px;">
-			<div *ngFor="let c of coursesByType[i]">
-				<mat-list-item (click)="onClickCourse(c.code)">{{ c.code }}</mat-list-item>
-			</div>
-		</mat-list>
-	</ng-container>
-</mat-list> -->
+</mat-grid-list> -->
 
 <mat-accordion>
     <mat-expansion-panel *ngFor="let t of types; let i = index;" (opened)="setOpened(i)" (closed)="setClosed(i)">
@@ -29,3 +24,5 @@
         </mat-list>
     </mat-expansion-panel>
 </mat-accordion>
+
+
