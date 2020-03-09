@@ -3,9 +3,9 @@ import { IDataService } from '../interfaces/services/data-service.interface';
 import { NETWORK_SERVICE } from '../interfaces/tokens/network-service-interface.token';
 import { INetworkService } from '../interfaces/services/network-service.interface';
 import { Course } from '../models/course';
-import { SemesterListComponent } from '../semester-list/semester-list.component';
+import { Semester } from '../models/semester';
 
-const semesterData : Array<SemesterListComponent> = [new SemesterListComponent(), new SemesterListComponent(), new SemesterListComponent(), new SemesterListComponent()]
+const semesterData : Array<Semester> = [new Semester([{"code":"CS 142","name":"Introduction to Computer Programming","credits":3,"type":"major-required","offered":{"fall":true,"winter":true,"spring":true,"summer":false}, "prereqs": [""]}], 1), new Semester([{"code":"CS 142","name":"Introduction to Computer Programming","credits":3,"type":"major-required","offered":{"fall":true,"winter":true,"spring":true,"summer":false}, "prereqs": [""]}], 2), new Semester([{"code":"CS 142","name":"Introduction to Computer Programming","credits":3,"type":"major-required","offered":{"fall":true,"winter":true,"spring":true,"summer":false}, "prereqs": [""]}], 3), new Semester([{"code":"CS 142","name":"Introduction to Computer Programming","credits":3,"type":"major-required","offered":{"fall":true,"winter":true,"spring":true,"summer":false}, "prereqs": [""]}], 4)] 
 
 export class DataService implements IDataService {
 
@@ -16,12 +16,12 @@ export class DataService implements IDataService {
     this.BASE_ENDPOINT = 'http://localhost:4000';
   }
 
-  addSemester(semester: SemesterListComponent) {
+  addSemester(semester: Semester) {
     //TODO: This should probably be marked as async and talk with the backend
     semesterData.push(semester)
   }
 
-  async getSemesterData() : Promise<Array<SemesterListComponent>> {
+  async getSemesterData() : Promise<Array<Semester>> {
     return semesterData
   }
 

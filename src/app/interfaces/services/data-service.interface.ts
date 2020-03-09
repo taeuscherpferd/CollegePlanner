@@ -1,9 +1,9 @@
 import { Course } from 'src/app/models/course';
-import { SemesterListComponent } from 'src/app/semester-list/semester-list.component';
+import { Semester } from 'src/app/models/semester';
 
 export interface IDataService {
   fetchCourseData(major: string): Promise<Array<Course>>
-  getSemesterData(): Promise<Array<SemesterListComponent>>
-  addSemester(semester: SemesterListComponent)
+  getSemesterData(): Promise<Array<Semester>>
+  addSemester(semester: Semester)
 
 }

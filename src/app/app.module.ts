@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainComponent } from './main/main.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthService } from './services/auth.service';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 import { AUTH_SERVICE } from './interfaces/tokens/auth-service-interface.token';
 import { LoginComponent } from './auth/login/login.component';
 import { CourseComponent } from './course/course.component';
@@ -45,6 +46,7 @@ import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
     MatListModule,
     MatButtonModule,
     MatGridListModule,
+    DragDropModule,
     MatExpansionModule,
     MatDialogModule,
     MatFormFieldModule,

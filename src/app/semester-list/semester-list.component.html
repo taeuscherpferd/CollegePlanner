@@ -1,1 +1,19 @@
-<div class="square"></div>
+<div class="square">
+  <!-- <h2>{{semester.title}}</h2> -->
+  <h2 class="centered">Dummy Title</h2>
+  <div
+    cdkDropList
+    id="{{'semester' + semester.id}}"
+    #sCourseList="cdkDropList"
+    [cdkDropListData]="semester.courses"
+    [cdkDropListConnectedTo]="connectedLists"
+    class="example-list"
+    (cdkDropListDropped)="drop($event)"
+    (cdkDropListExited)="exit($event)"
+    (cdkDropListEntered)="entered($event)">
+    <div class="example-box" *ngFor="let item of semester.courses" cdkDrag [cdkDragData] = "item">
+      <app-course [course]="item"></app-course>
+    </div>
+  </div>
+  <h3 class="centered">Credits: {{semester.credits}}</h3>
+</div>

@@ -7,6 +7,8 @@ div.course {
     border-radius: 4px;
     cursor: move;
     font-size: 14px;
+    position: relative;
+    z-index: 1;
 }
 
 div.GE {
