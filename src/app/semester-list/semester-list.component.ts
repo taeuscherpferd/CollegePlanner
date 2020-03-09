@@ -32,11 +32,11 @@ export class SemesterListComponent implements OnInit {
 
   exit(event: CdkDragExit<Course>) {
     console.log('exited', event.item.data)
-    this.semester.creditCount -=  event.item.data.creditCount
+    this.semester.credits -=  event.item.data.credits
   }
 
   entered(event: CdkDragEnter<Course>) {
     console.log('entered', event.item.data)
-    this.semester.creditCount +=  event.item.data.creditCount
+    this.semester.credits +=  event.item.data.credits
   }
 }
