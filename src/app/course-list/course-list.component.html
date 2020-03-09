@@ -1,8 +1,7 @@
-<mat-grid-list cols="3" rowHeight="2:1">
-    <mat-grid-tile>Pick Major:</mat-grid-tile>
-    <mat-grid-tile><button (click)="onClickEcon()" raised-button>Econ</button></mat-grid-tile>
-    <mat-grid-tile><button (click)="onClickCS()" raised-button>CS</button></mat-grid-tile>
-  </mat-grid-list>
+<h2 style="text-align:center;">Pick your classes!</h2>
+<div id="button-div">
+    <button mat-raised-button (click)="openDialog()">Settings</button>
+</div>
 
 <mat-accordion style="z-index: 2; position: relative;">
     <mat-expansion-panel *ngFor="let t of types; let i = index;" (opened)="setOpened(i)" (closed)="setClosed(i)">
@@ -27,3 +26,5 @@
         <!-- </mat-list> -->
     </mat-expansion-panel>
 </mat-accordion>
+
+
