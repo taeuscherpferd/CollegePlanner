@@ -17,20 +17,20 @@ export class CourseComponent implements OnInit, ICourse {
 
   ngOnInit() {
       this.whenOffered = '';
-      if (this.course.semesterOffered.fall) { this.whenOffered += 'F'; }
-      if (this.course.semesterOffered.winter) { this.whenOffered += 'W'; }
-      if (this.course.semesterOffered.spring) { this.whenOffered += 'Sp'; }
-      if (this.course.semesterOffered.summer) { this.whenOffered += 'Su'; }
+      if (this.course.offered.fall) { this.whenOffered += 'F'; }
+      if (this.course.offered.winter) { this.whenOffered += 'W'; }
+      if (this.course.offered.spring) { this.whenOffered += 'Sp'; }
+      if (this.course.offered.summer) { this.whenOffered += 'Su'; }
   }
 
   getCode() {
-      return this.course.courseCode;
+      return this.course.code;
   }
   getCredits() {
-      return this.course.creditCount;
+      return this.course.credits;
   }
   isOffered(semesterOrTerm) {
-      return this.course.semesterOffered[semesterOrTerm];
+      return this.course.offered[semesterOrTerm];
   }
   getPrereqs() {
       return this.course.prereqs;
