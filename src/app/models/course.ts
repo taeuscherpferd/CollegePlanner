@@ -1,8 +1,14 @@
 export class Course {
-  courseName: string 
-  courseCode: string
-  creditCount: number
-  courseType: string
-  semesterOffered: {fall: Boolean, summer: Boolean, winter: Boolean, spring: Boolean}
-  prereqs: [string]
+    code: string;
+    name: string;
+    credits: number;
+    type: string;
+    offered:
+    {
+        fall: boolean;
+        winter: boolean;
+        spring: boolean;
+        summer: boolean;
+    }
+    prereqs: Array<string>;
 }

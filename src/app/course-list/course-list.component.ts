@@ -37,25 +37,25 @@ export class CourseListComponent implements OnInit {
     if(major == 1) {
       // this.tempObject = JSON.parse(data);
       // this.courses = this.tempObject.program.courses;
-      this.courses = await this.dataService.fetchCourseData("cs")
+      this.courses = await this.dataService.fetchCourseData("1")
     }
     else {
       // this.tempObject = JSON.parse(data2);
       // this.courses = this.tempObject.program.courses;
-      this.courses = await this.dataService.fetchCourseData("econ")
+      this.courses = await this.dataService.fetchCourseData("2")
     }
   }
 
   async arrangeCoursesByType(major) {
     await this.getCourses(major);
-    
+
     this.coursesByType = new Array;
     // this.types = JSON.parse(this.types);
     for(var j = 0; j < this.types.length; j++) {
       var tempArray = new Array<Course>();
       var i = 0;
       while (i < this.courses.length) {
-        if(this.courses[i].courseType == this.types[j]) {
+        if(this.courses[i].type == this.types[j]) {
           tempArray.push(this.courses[i]);
         }
         i++;

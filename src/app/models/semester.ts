@@ -5,6 +5,10 @@ export class Semester {
   creditCount: number = 0
   courses: Array<Course> = []
   id: number
+  year: string;
+  type: string;
+  // TODO: This could cause some issues
+  // courses: Array<string>;
 
   constructor(i_courses?: [Course], i_Id?: number) {
     if (i_courses != null) {
@@ -16,7 +20,7 @@ export class Semester {
     }
 
     for (let course of this.courses) {
-      this.creditCount += course.creditCount
+      this.creditCount += course.credits
     }
   }
 }

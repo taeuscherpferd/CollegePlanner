@@ -1,4 +1,4 @@
-<div class="course {{ course.courseType }}">
-    <p class="code-title">{{ course.courseCode }} | {{ (course.courseName.length>15) ? (course.courseName | slice:0:15)+'...' : (course.courseName) }}</p>
-    <p>{{ course.creditCount }} hrs | {{ whenOffered }}</p>
+<div class="course {{ course.type }}">
+    <p class="code-title">{{ course.code }} | {{ (course.name.length>15) ? (course.name | slice:0:15)+'...' : (course.name) }}</p>
+    <p>{{ course.credits }} hrs | {{ whenOffered }}</p>
 </div>
